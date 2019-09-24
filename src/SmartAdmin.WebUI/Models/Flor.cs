@@ -23,10 +23,15 @@ namespace SmartAdmin.WebUI.Models
         [MaxLength(200, ErrorMessage = "{0} pode ter no máximo {1}caracteres")]
         [Required(ErrorMessage = "O campo {0} é obrigatório!")]
         public string Descricao { get; set; }
-
+        [Display(Name = "Data estimada da colheita")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date)]
         public DateTime? DataColheitaEstimada { get; set; }
+        [Display(Name = "Tamnho da area plantada horizontal")]
         public decimal? AreaHorizontalPlantada { get; set; }
+        [Display(Name = "Tamnho da area plantada vertical")]
         public decimal? AreaVerticalPlantada { get; set; }
+        [Display(Name = "Data de cadastro")]
         public DateTime DataCadastro { get; set; }
 
 
