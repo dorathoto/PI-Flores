@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace SmartAdmin.WebUI.Models
         public int IrrigacaoQtdPessoas { get; set; }
         public bool Estufa { get; set; }
         public DateTime DataCadastro { get; set; }
-
+        public virtual ICollection<Flor> Flores { get; set; }
 
         //falta icollection flor
     }
