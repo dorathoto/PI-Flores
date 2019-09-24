@@ -9,5 +9,9 @@ namespace SmartAdmin.WebUI.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index() => View();
+        public IActionResult QuemSomos() => View();
+        public IActionResult Objetivos() => View();
+        public IActionResult Dificuldades() => View();
+        public IActionResult Especificacoes() => View();
     }
 }

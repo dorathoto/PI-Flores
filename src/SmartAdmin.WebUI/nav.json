@@ -7,25 +7,25 @@
 			"items": [
 				{
 					"title": "Introdução",
-					"href": "intel_analytics_dashboard.html"
+					"href": "home_index.html"
 				},
 				{
 					"title": "Quem somos",
-					"href": "intel_marketing_dashboard.html"
+					"href": "home_quemsomos.html"
 				},
-				{
-					"title": "Nossos objetivos",
-					"href": "intel_introduction.html"
-				},
-				{
-					"title": "Nossas dificuldades",
-					"href": "intel_privacy.html"
-				},
-				{
-					"title": "Especificações ténicas",
-					"href": "intel_build_notes.html"
-					
-				}
+        {
+          "title": "Nossos objetivos",
+          "href": "home_Objetivos.html"
+        },
+        {
+          "title": "Nossas dificuldades",
+          "href": "home_Dificuldades.html"
+        },
+        {
+          "title": "Especificações ténicas",
+          "href": "home_Especificacoes.html"
+
+        }
 			]
 		}
 		,
