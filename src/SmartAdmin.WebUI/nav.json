@@ -43,177 +43,71 @@
 				
 			]
 		},
-		{
-			"title": "Utilities",
-			"icon": "fal fa-bolt",
-			"items": [
-				{
-					"title": "Borders",
-					"href": "utilities_borders.html"
-				},
-				{
-					"title": "Clearfix",
-					"href": "utilities_clearfix.html"
-				},
-				{
-					"title": "Color Pallet",
-					"href": "utilities_color_pallet.html"
-				},
-				{
-					"title": "Display Property",
-					"href": "utilities_display_property.html"
-				},
-				{
-					"title": "Fonts",
-					"href": "utilities_fonts.html"
-				},
-				{
-					"title": "Flexbox",
-					"href": "utilities_flexbox.html"
-				},
-				{
-					"title": "Helpers",
-					"href": "utilities_helpers.html"
-				},
-				{
-					"title": "Position",
-					"href": "utilities_position.html"
-				},
-				{
-					"title": "Responsive Grid",
-					"href": "utilities_responsive_grid.html"
-				},
-				{
-					"title": "Sizing",
-					"href": "utilities_sizing.html"
-				},
-				{
-					"title": "Spacing",
-					"href": "utilities_spacing.html"
-				},
-				{
-					"title": "Typography",
-					"tags": "fonts headings bold lead colors sizes link text states list styles truncate alignment",
-					"href": "utilities_typography.html"
-				},
-				{
-					"title": "Menu child",
-					"href": "javascript:void(0);",
-					"items": [
-						{
-							"title": "Sublevel Item",
-							"href": "javascript:void(0);"
-						},
-						{
-							"title": "Another Item",
-							"href": "javascript:void(0);"
-						}
-					]
-				},
-				{
-					"title": "Disabled item",
-					"disabled": true,
-					"href": "javascript:void(0);"
-				}
-			]
-		},
-		{
-			"title": "Font Icons",
-			"icon": "fal fa-map-marker-alt",
-			"span": {
-				"class": "dl-ref bg-primary-500 hidden-nav-function-minify hidden-nav-function-top",
-				"text": "2,500+"
-			},
-			"items": [
-				{
-					"title": "FontAwesome",
-					"text": "FontAwesome Pro",
-					"href": "javascript:void(0);",
-					"items": [
-						{
-							"title": "Light",
-							"href": "icons_fontawesome_light.html"
-						},
-						{
-							"title": "Regular",
-							"href": "icons_fontawesome_regular.html"
-						},
-						{
-							"title": "Solid",
-							"href": "icons_fontawesome_solid.html"
-						},
-						{
-							"title": "Brand",
-							"href": "icons_fontawesome_brand.html"
-						}
-					]
-				},
-				{
-					"title": "NextGen Icons",
-					"href": "javascript:void(0);",
-					"items": [
-						{
-							"title": "General",
-							"href": "icons_nextgen_general.html"
-						},
-						{
-							"title": "Base",
-							"href": "icons_nextgen_base.html"
-						}
-					]
-				},
-				{
-					"title": "Stack Icons",
-					"href": "javascript:void(0);",
-					"items": [
-						{
-							"title": "Showcase",
-							"href": "icons_stack_showcase.html"
-						},
-						{
-							"title": "Generate Stack",
-							"href": "icons_stack_generate.html?layers=3"
-						}
-					]
-				}
-			]
-		},
-		{
-			"title": "Tables",
-			"icon": "fal fa-th-list",
-			"items": [
-				{
-					"title": "Basic Tables",
-					"href": "tables_basic.html"
-				},
-				{
-					"title": "Generate Table Style",
-					"href": "tables_generate_style.html"
-				}
-			]
-		},
-		{
-			"title": "Form Stuff",
-			"icon": "fal fa-edit",
-			"items": [
-				{
-					"title": "Basic Inputs",
-					"href": "form_basic_inputs.html"
-				},
-				{
-					"title": "Checkbox & Radio",
-					"href": "form_checkbox_radio.html"
-				},
-				{
-					"title": "Input Groups",
-					"href": "form_input_groups.html"
-				},
-				{
-					"title": "Validation",
-					"href": "form_validation.html"
-				}
-			]
-		},
+    {
+      "title": "Tipo de flores",
+      "icon": "fal fa-bolt",
+      "items": [
+        {
+          "title": "Listar",
+          "href": "utilities_borders.html"
+        },
+        {
+          "title": "Cadastrar",
+          "href": "utilities_clearfix.html"
+        }
+      ]
+    },
+    {
+      "title": "Produto – Plantação",
+      "icon": "fal fa-map-marker-alt",
+      "span": {
+        "class": "dl-ref bg-primary-500 hidden-nav-function-minify hidden-nav-function-top",
+        
+      },
+      "items": [
+        {
+          "title": "Nova plantação",
+          "text": "FontAwesome Pro",
+          "href": "javascript:void(0);",
+          "items":[]
+
+        },
+        {
+          "title": "Atuais",
+          "href": "javascript:void(0);",
+          "items": []
+        },
+        {
+          "title": "Custos",
+          "href": "javascript:void(0);",
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Almoxarifado",
+      "icon": "fal fa-th-list",
+      "items": [
+        {
+          "title": "Listar",
+          "href": "tables_basic.html"
+        },
+        {
+          "title": "Cadastrar",
+          "href": "tables_generate_style.html"
+        }
+      ]
+    },
+    {
+      "title": "Relatórios",
+      "icon": "fal fa-edit",
+      "items": [
+        {
+          "title": "X1",
+          "href": "form_basic_inputs.html"
+        }
+      ]
+    },
 		{
 			"title": "Plugins & Addons"
 		},
