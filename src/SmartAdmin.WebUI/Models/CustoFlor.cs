@@ -9,10 +9,11 @@ namespace SmartAdmin.WebUI.Models
     {
         public int CustoFlorId { get; set; }
         public int FlorId { get; set; }
-        public virtual Flor Flores { get; set; }
         public int Quantidade { get; set; }
         public decimal ValorCalculado { get; set; }
         public DateTime DataCadastro { get; set; }
+
+        public virtual Flor Flores { get; set; }
 
     }
 }

@@ -15,5 +15,7 @@ namespace SmartAdmin.WebUI.Models
         public bool Estufa { get; set; }
         public DateTime DataCadastro { get; set; }
 
+
+        //falta icollection flor
     }
 }
