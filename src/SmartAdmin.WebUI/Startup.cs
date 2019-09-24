@@ -33,15 +33,15 @@ namespace SmartAdmin.WebUI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc(options =>
                 {
-                    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-                    options.Filters.Add(new AuthorizeFilter(policy));
+                    //var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                    //options.Filters.Add(new AuthorizeFilter(policy));
                     options.Filters.Add<ViewBagFilter>();
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SmartAdmin.WebUI.Data.Migrations
+namespace SmartAdmin.WebUI.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class DataBaseSQL : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
