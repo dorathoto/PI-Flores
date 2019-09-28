@@ -1,31 +1,79 @@
 ﻿@{
     ViewData["Title"] = "PI";
-    ViewData["Category1"] = "Página Inicial";
+    ViewData["Category1"] = "Especificações Técnicas";
 
-    ViewData["PageName"] = "home_index";
+    ViewData["PageName"] = "home_Especificacoes";
     ViewData["Heading"] = "<i class='fal fa-info-circle'></i> Página Inicial";
 
-    ViewData["PageDescription"] = "O que é esse projeto?";
+    ViewData["PageDescription"] = "Qual tecnlogia usamos? E porquê?";
 }
 @section HeadBlock {}
     <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
         <h3 class="mb-g">
-            Home
+            Especificações Técnicas
         </h3>
+        <p>
+            <p>Acesse nosso repositório</p>
+            <img src="~/img/Github.png" />
+            <a href="https://github.com/dorathoto/PI-Flores">https://github.com/dorathoto/PI-Flores</a>
 
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elementum elit, eget sodales elit. Integer ut egestas nulla, eget porta dolor. Pellentesque dignissim tempor elementum. Vestibulum vehicula ligula sit amet molestie sagittis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla porttitor molestie magna, id auctor lectus faucibus eu. Integer turpis augue, fringilla vel varius ac, viverra sed risus. Integer placerat nibh a orci ultrices, vitae imperdiet lacus feugiat. Maecenas sit amet ante tempor, maximus orci non, consequat neque. Fusce finibus faucibus urna vel mattis. Cras sit amet mollis nisl. Ut semper ullamcorper massa vitae bibendum.
         </p>
         <p>
-            Aenean auctor tellus efficitur, bibendum quam ut, condimentum lorem. Sed non sapien magna. Proin lobortis felis at scelerisque imperdiet. Sed at efficitur velit, eget lobortis velit. Nulla facilisi. Cras lectus elit, commodo eget fermentum ac, sollicitudin eu lorem. Ut commodo odio orci, vel accumsan mauris euismod in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras posuere mauris metus, id mollis nisl rhoncus ut. Fusce elementum consectetur arcu, ut porta felis dictum nec. Sed non rhoncus enim, a dapibus diam. Etiam congue ullamcorper est ac consequat.
-        </p> <p>
-            Phasellus vitae ornare metus. Vivamus hendrerit ornare mi eu malesuada. Sed vel magna quis ipsum volutpat tincidunt. Mauris pharetra ante at neque tristique laoreet. Cras rhoncus, ipsum eu semper commodo, neque nibh eleifend orci, non consectetur erat leo sed enim. Vestibulum accumsan elit nec augue bibendum, et molestie eros porttitor. Donec convallis finibus risus eu aliquet. Suspendisse id augue dictum, pretium quam non, sodales nunc. Pellentesque sit amet feugiat orci. Fusce mi arcu, convallis sed egestas ac, efficitur in lacus. Vivamus lectus nibh, luctus id est ut, consectetur dictum erat. Sed semper pharetra erat vel porttitor. Proin quis risus ac purus bibendum fringilla.
+            Hoje quando pensamos em desenvolver um Aplicativo (no nosso caso um website) e sensores temos muitas tecnologias disponíveis. Devemos sempre nos basear em alguns fatores:
         </p>
+        <ol>
+            <li><b>Técnologias que conhecemos </b>- Não adianta querer utilizar a tecnologia XYZ se não temos nenhuma familiaridade com ela, é sim possível aprendermos novas tecnologias para um projeto, mas apenas quando elas são semelhantes a outras já conhecidas.</li>
+            <li><b>Melhor tecnologia para o projeto</b>- O item 1 não deve ser definitivo, não devemos nos prender a apenas as tecnlogias conhecidas, ex: É possível fazer um aplicativo de celular com a tecnologia Python? Sim, mas é como tomar sopa de garfo, até é possível mas dará um trabalho.</li>
+          
+        </ol>
+        Dividimos em 2 projetos, o Aplicativo e os Sensores. Vamos ver cada um deles.
+        <fieldset>
+            <legend>Aplicativo</legend>
+            Para o aplicativo pensamos ao invés de fazer um Aplicativo Mobile + Site, devido a nossa restrinção de tempo, decidimos fazer um website que fosse responsivo (que se adapte a qualquer dispositivo). Assim tanto celulares como Computadores seriam possíveis de acessar.<br />
+            Para isso utilizamos a metodologia <i>Mobile First ¹</i>
+
+            <p><b>Front-end</b></p>
+            <p>
+                <ul>
+                    <li><a href="https://pt.wikipedia.org/wiki/HTML5#" target="_blank">HTML5</a></li>
+                    <li><a href="https://pt.wikipedia.org/wiki/CSS3" target="_blank">CSS 3</a></li>
+                    <li><a href="https://pt.wikipedia.org/wiki/ECMAScript" target="_blank">ECMAScript 6</a></li>
+                    <li><a href="http://npm.com" target="_blank">NPM</a></li>
+                </ul>
+            </p>
+            <p><b>Back-end</b></p>            <p>
+            <b>Tecnologias</b>
+                <ul>
+                    <li><a href="http://asp.net" target="_blank">ASP.Net Core 2.2</a></li>
+                    <li><a href="https://azure.microsoft.com/pt-br/services/sql-database/" target="_blank">MS SQL Server rodando PaaS no Azure</a></li>
+                    <li><a href="http://azure.com" target="_blank">Azure</a> </li>
+                </ul>
+            <p>Esse site serve para o sistema de gestão dos pequenos produtores rurais como endpoint (API) para receber os dados dos sensores, assim os sensores nas plantações enviam os dados para cá que centraliza e através de técnicas de BI criam os relatorios atuais.
+
+            </p>
+        </fieldset>
+         <fieldset>
+            <legend>Sensores - Iot</legend>
+             <p>Os sensores serão desenvolvido na segunda etapa (próx. bimestre), basicamente são sensores de solo, ambiente desenvolvidos em RasberryPy + Python3 enviado os dados para nuvem (esse site)</p>
+         </fieldset>
+        <hr />
+        <fieldset>
+            <legend>Infraestrutura</legend>
+            <p>
+                Para estrutura de infra, foi pensado em utilizar o que existe de mais moderno atualmente, com o objetivo de evitar manutenções, instabilidades e outros tipos de problemas, então a escolha foi Infraestrutura na Nuvem utilizando o Microsoft Azure.<br />
+                Na nuvem existem diversas possibilidades de arquitetura, como IaaS, PaaS e SaaS, para a escolha correta é necessário o entendimento de cada um.
+            </p>
+            <p>
+                <b>PAAS – PLATAFORM AS A SERVICE / PLATAFORMA COMO SERVIÇO</b><br />
+                Conforme a (MICROSOFT), neste modelo de serviço o portal irá disponibilizar a plataforma para desenvolvimento e gerenciamento do seus aplicativos na nuvem, sem que você precise se preocupar com a configuração de infraestrutura necessária para que esta plataforma esteja em funcionamento, configuração como SOs, servidores de aplicação e etc. Um servidor que hospeda seu site é um exemplo de um serviço PaaS. O Windows Azure, além de IaaS e SaaS, também se encaixa nesta categoria por oferecer ao usuário a plataforma necessária para desenvolver as suas próprias aplicações sem que ele precise se preocupar com a infraestrutura por traz disto.
+
+
+            </p>
+        </fieldset>
+
     </div>
 
-<p class="fs-lg">
-    <a href="#" class="fw-500 fs-xl">> Ready to join our dedicated team?</a><br>
-    We are always on the lookout to expand and add unique app flavors to SmartAdmin. If you think you can contribute and create your very own flavors, get in touch with us or <a href="#" target="_blank">click here to learn more</a> about our partnership program.
-</p>
+
+
 @section ScriptsBlock {
 }
