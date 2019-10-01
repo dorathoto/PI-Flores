@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace SmartAdmin.WebUI.Models
 {
     public class CustoFlor
-    {   
+    {
+        [Key]
         public int CustoFlorId { get; set; }
         [Display(Name = "Tipo Flor")]
         public int FlorId { get; set; }

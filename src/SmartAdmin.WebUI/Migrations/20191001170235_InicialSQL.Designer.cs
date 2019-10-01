@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartAdmin.WebUI.Data;
@@ -9,14 +10,16 @@ using SmartAdmin.WebUI.Data;
 namespace SmartAdmin.WebUI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190924130453_DataBaseSQL")]
-    partial class DataBaseSQL
+    [Migration("20191001170235_InicialSQL")]
+    partial class InicialSQL
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -36,7 +39,8 @@ namespace SmartAdmin.WebUI.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex");
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -44,7 +48,8 @@ namespace SmartAdmin.WebUI.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimType");
 
@@ -105,7 +110,8 @@ namespace SmartAdmin.WebUI.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex");
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -113,7 +119,8 @@ namespace SmartAdmin.WebUI.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimType");
 
@@ -179,6 +186,104 @@ namespace SmartAdmin.WebUI.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.Almoxarifado", b =>
+                {
+                    b.Property<int>("AlmoxarifadoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<int>("TipoMovimentacao");
+
+                    b.Property<decimal>("ValorFinal");
+
+                    b.Property<decimal>("ValorUnitario");
+
+                    b.HasKey("AlmoxarifadoId");
+
+                    b.ToTable("Almoxarifado");
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.CustoFlor", b =>
+                {
+                    b.Property<int>("CustoFlorId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<int>("FlorId");
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<decimal>("ValorCalculado");
+
+                    b.HasKey("CustoFlorId");
+
+                    b.HasIndex("FlorId");
+
+                    b.ToTable("CustoFlor");
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.Flor", b =>
+                {
+                    b.Property<int>("FlorId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal?>("AreaHorizontalPlantada");
+
+                    b.Property<decimal?>("AreaVerticalPlantada");
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<DateTime?>("DataColheitaEstimada");
+
+                    b.Property<DateTime>("DataPlantacao");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<int>("TipoFlorId");
+
+                    b.HasKey("FlorId");
+
+                    b.HasIndex("TipoFlorId");
+
+                    b.ToTable("Flor");
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.TipoFlor", b =>
+                {
+                    b.Property<int>("TipoFlorId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<bool>("Estufa");
+
+                    b.Property<int>("IrrigacaoQtdPessoas");
+
+                    b.Property<int>("IrrigacaoSemana");
+
+                    b.Property<decimal>("IrrigacaoTempo");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("TipoFlorId");
+
+                    b.ToTable("TipoFlor");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -221,6 +326,22 @@ namespace SmartAdmin.WebUI.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.CustoFlor", b =>
+                {
+                    b.HasOne("SmartAdmin.WebUI.Models.Flor", "Flores")
+                        .WithMany("CustoFlores")
+                        .HasForeignKey("FlorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.Flor", b =>
+                {
+                    b.HasOne("SmartAdmin.WebUI.Models.TipoFlor", "TipoFlor")
+                        .WithMany("Flores")
+                        .HasForeignKey("TipoFlorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

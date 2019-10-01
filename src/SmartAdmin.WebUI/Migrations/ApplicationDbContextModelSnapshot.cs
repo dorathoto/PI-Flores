@@ -184,6 +184,104 @@ namespace SmartAdmin.WebUI.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.Almoxarifado", b =>
+                {
+                    b.Property<int>("AlmoxarifadoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<int>("TipoMovimentacao");
+
+                    b.Property<decimal>("ValorFinal");
+
+                    b.Property<decimal>("ValorUnitario");
+
+                    b.HasKey("AlmoxarifadoId");
+
+                    b.ToTable("Almoxarifado");
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.CustoFlor", b =>
+                {
+                    b.Property<int>("CustoFlorId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<int>("FlorId");
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<decimal>("ValorCalculado");
+
+                    b.HasKey("CustoFlorId");
+
+                    b.HasIndex("FlorId");
+
+                    b.ToTable("CustoFlor");
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.Flor", b =>
+                {
+                    b.Property<int>("FlorId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal?>("AreaHorizontalPlantada");
+
+                    b.Property<decimal?>("AreaVerticalPlantada");
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<DateTime?>("DataColheitaEstimada");
+
+                    b.Property<DateTime>("DataPlantacao");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<int>("TipoFlorId");
+
+                    b.HasKey("FlorId");
+
+                    b.HasIndex("TipoFlorId");
+
+                    b.ToTable("Flor");
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.TipoFlor", b =>
+                {
+                    b.Property<int>("TipoFlorId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<bool>("Estufa");
+
+                    b.Property<int>("IrrigacaoQtdPessoas");
+
+                    b.Property<int>("IrrigacaoSemana");
+
+                    b.Property<decimal>("IrrigacaoTempo");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("TipoFlorId");
+
+                    b.ToTable("TipoFlor");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -226,6 +324,22 @@ namespace SmartAdmin.WebUI.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.CustoFlor", b =>
+                {
+                    b.HasOne("SmartAdmin.WebUI.Models.Flor", "Flores")
+                        .WithMany("CustoFlores")
+                        .HasForeignKey("FlorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("SmartAdmin.WebUI.Models.Flor", b =>
+                {
+                    b.HasOne("SmartAdmin.WebUI.Models.TipoFlor", "TipoFlor")
+                        .WithMany("Flores")
+                        .HasForeignKey("TipoFlorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

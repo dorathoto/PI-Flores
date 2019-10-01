@@ -8,7 +8,7 @@ namespace SmartAdmin.WebUI.Models
 {
     public class TipoFlor
     {
-        [Display(Name = "Tipo Flor")]
+        [Key]
         public int TipoFlorId { get; set; }
         [Display(Name = "Nome")]
         public string Nome { get; set; }

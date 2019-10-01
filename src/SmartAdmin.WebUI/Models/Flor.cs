@@ -8,6 +8,7 @@ namespace SmartAdmin.WebUI.Models
 {
     public class Flor
     {
+        [Key]
         public int FlorId { get; set; }
 
         [Display(Name = "Tipo Flor")]

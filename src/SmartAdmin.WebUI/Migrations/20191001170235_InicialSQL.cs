@@ -1,12 +1,31 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SmartAdmin.WebUI.Migrations
 {
-    public partial class DataBaseSQL : Migration
+    public partial class InicialSQL : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Almoxarifado",
+                columns: table => new
+                {
+                    AlmoxarifadoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ValorUnitario = table.Column<decimal>(nullable: false),
+                    ValorFinal = table.Column<decimal>(nullable: false),
+                    Quantidade = table.Column<int>(nullable: false),
+                    TipoMovimentacao = table.Column<int>(nullable: false),
+                    Descricao = table.Column<string>(maxLength: 200, nullable: false),
+                    DataCadastro = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Almoxarifado", x => x.AlmoxarifadoId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -47,11 +66,29 @@ namespace SmartAdmin.WebUI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TipoFlor",
+                columns: table => new
+                {
+                    TipoFlorId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: true),
+                    IrrigacaoSemana = table.Column<int>(nullable: false),
+                    IrrigacaoTempo = table.Column<decimal>(nullable: false),
+                    IrrigacaoQtdPessoas = table.Column<int>(nullable: false),
+                    Estufa = table.Column<bool>(nullable: false),
+                    DataCadastro = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoFlor", x => x.TipoFlorId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -72,7 +109,7 @@ namespace SmartAdmin.WebUI.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -152,6 +189,53 @@ namespace SmartAdmin.WebUI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Flor",
+                columns: table => new
+                {
+                    FlorId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    TipoFlorId = table.Column<int>(nullable: false),
+                    DataPlantacao = table.Column<DateTime>(nullable: false),
+                    Descricao = table.Column<string>(maxLength: 200, nullable: false),
+                    DataColheitaEstimada = table.Column<DateTime>(nullable: true),
+                    AreaHorizontalPlantada = table.Column<decimal>(nullable: true),
+                    AreaVerticalPlantada = table.Column<decimal>(nullable: true),
+                    DataCadastro = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Flor", x => x.FlorId);
+                    table.ForeignKey(
+                        name: "FK_Flor_TipoFlor_TipoFlorId",
+                        column: x => x.TipoFlorId,
+                        principalTable: "TipoFlor",
+                        principalColumn: "TipoFlorId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CustoFlor",
+                columns: table => new
+                {
+                    CustoFlorId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FlorId = table.Column<int>(nullable: false),
+                    Quantidade = table.Column<int>(nullable: false),
+                    ValorCalculado = table.Column<decimal>(nullable: false),
+                    DataCadastro = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CustoFlor", x => x.CustoFlorId);
+                    table.ForeignKey(
+                        name: "FK_CustoFlor_Flor_FlorId",
+                        column: x => x.FlorId,
+                        principalTable: "Flor",
+                        principalColumn: "FlorId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -161,7 +245,8 @@ namespace SmartAdmin.WebUI.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -187,11 +272,25 @@ namespace SmartAdmin.WebUI.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustoFlor_FlorId",
+                table: "CustoFlor",
+                column: "FlorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Flor_TipoFlorId",
+                table: "Flor",
+                column: "TipoFlorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Almoxarifado");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -208,10 +307,19 @@ namespace SmartAdmin.WebUI.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CustoFlor");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Flor");
+
+            migrationBuilder.DropTable(
+                name: "TipoFlor");
         }
     }
 }

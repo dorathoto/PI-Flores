@@ -13,9 +13,10 @@ namespace SmartAdmin.WebUI.Data
             : base(options)
         {
         }
-        public DbSet<SmartAdmin.WebUI.Models.Almoxarifado> Almoxarifado { get; set; }
-        public DbSet<SmartAdmin.WebUI.Models.CustoFlor> CustoFlor { get; set; }
-        public DbSet<SmartAdmin.WebUI.Models.Flor> Flor { get; set; }
-        public DbSet<SmartAdmin.WebUI.Models.TipoFlor> TipoFlor { get; set; }
+
+        public DbSet<Almoxarifado> Almoxarifado { get; set; }
+        public DbSet<CustoFlor> CustoFlor { get; set; }
+        public DbSet<Flor> Flor { get; set; }
+        public DbSet<TipoFlor> TipoFlor { get; set; }
     }
 }

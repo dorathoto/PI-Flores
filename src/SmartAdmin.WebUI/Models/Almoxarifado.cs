@@ -10,6 +10,7 @@ namespace SmartAdmin.WebUI.Models
 {
     public class Almoxarifado
     {
+        [Key]
         public int AlmoxarifadoId { get; set; }
         [Display(Name = "Valor Unitário")]
         public decimal ValorUnitario { get; set; }
