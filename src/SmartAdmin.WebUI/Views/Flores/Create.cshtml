@@ -1,0 +1,62 @@
+﻿@model SmartAdmin.WebUI.Models.Flor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Flor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TipoFlorId" class="control-label"></label>
+                <select asp-for="TipoFlorId" class ="form-control" asp-items="ViewBag.TipoFlorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataPlantacao" class="control-label"></label>
+                <input asp-for="DataPlantacao" class="form-control" />
+                <span asp-validation-for="DataPlantacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataColheitaEstimada" class="control-label"></label>
+                <input asp-for="DataColheitaEstimada" class="form-control" />
+                <span asp-validation-for="DataColheitaEstimada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaHorizontalPlantada" class="control-label"></label>
+                <input asp-for="AreaHorizontalPlantada" class="form-control" />
+                <span asp-validation-for="AreaHorizontalPlantada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaVerticalPlantada" class="control-label"></label>
+                <input asp-for="AreaVerticalPlantada" class="form-control" />
+                <span asp-validation-for="AreaVerticalPlantada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataCadastro" class="control-label"></label>
+                <input asp-for="DataCadastro" class="form-control" />
+                <span asp-validation-for="DataCadastro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

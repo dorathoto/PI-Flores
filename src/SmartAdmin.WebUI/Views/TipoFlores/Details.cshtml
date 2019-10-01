@@ -1,0 +1,54 @@
+﻿@model SmartAdmin.WebUI.Models.TipoFlor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TipoFlor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IrrigacaoSemana)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IrrigacaoSemana)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IrrigacaoTempo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IrrigacaoTempo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IrrigacaoQtdPessoas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IrrigacaoQtdPessoas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estufa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estufa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TipoFlorId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

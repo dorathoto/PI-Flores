@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SmartAdmin.WebUI.Models.CustoFlor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorCalculado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flores)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorCalculado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flores.Descricao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustoFlorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CustoFlorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CustoFlorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

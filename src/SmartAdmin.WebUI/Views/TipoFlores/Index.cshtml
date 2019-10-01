@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SmartAdmin.WebUI.Models.TipoFlor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IrrigacaoSemana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IrrigacaoTempo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IrrigacaoQtdPessoas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estufa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IrrigacaoSemana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IrrigacaoTempo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IrrigacaoQtdPessoas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estufa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TipoFlorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TipoFlorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TipoFlorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
