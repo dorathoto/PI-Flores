@@ -24,8 +24,8 @@ namespace SmartAdmin.WebUI.Models
                 // SmartAdmin Default Settings
                 controller.ViewBag.App =  "PI Flores";
                 controller.ViewBag.AppName =  "PI Flores - Atibaia";
-                controller.ViewBag.AppFlavor =  "ASP.NET Core 2.2";
-                controller.ViewBag.AppFlavorSubscript =  "SEED";
+                controller.ViewBag.AppFlavor =  "PI Flores";
+                controller.ViewBag.AppFlavorSubscript =  "beta";
            //     controller.ViewBag.User =  "Dr. Codex Lantern";
             //    controller.ViewBag.Email =  "drlantern@gotbootstrap.com";
              //   controller.ViewBag.Twitter =  "codexlantern";
