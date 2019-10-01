@@ -39,11 +39,11 @@
       "items": [
         {
           "title": "Listar",
-          "href": "TipoFlores_index.html"
+          "href": "TipoFlores_Index.html"
         },
         {
           "title": "Cadastrar",
-          "href": "utilities_clearfix.html"
+          "href": "TipoFlores_Create.html"
         }
       ]
     },
@@ -57,16 +57,15 @@
       "items": [
         {
           "title": "Nova plantação",
-          "text": "FontAwesome Pro",
           "href": "javascript:void(0);"
         },
         {
-          "title": "Atuais",
-          "href": "javascript:void(0);"
+          "title": "Lista",
+          "href": "Flores_Index.html"
         },
         {
           "title": "Custos",
-          "href": "javascript:void(0);"
+          "href": "CustoFlores_Index.html"
         }
       ]
     },
@@ -76,11 +75,11 @@
       "items": [
         {
           "title": "Listar",
-          "href": "tables_basic.html"
+          "href": "Almoxarifados_Index.html"
         },
         {
           "title": "Cadastrar",
-          "href": "tables_generate_style.html"
+          "href": "Almoxarifados_Create.html"
         }
       ]
     },
