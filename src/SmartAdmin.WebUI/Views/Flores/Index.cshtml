@@ -2,70 +2,84 @@
 
 @{
     ViewData["Title"] = "Index";
-}
+    ViewData["Category1"] = "Index";
 
-<h1>Index</h1>
+    ViewData["PageName"] = "Flores_Index";
+    ViewData["Heading"] = "<i class='far fa-list-alt'></i> Flores";
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DataPlantacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataColheitaEstimada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AreaHorizontalPlantada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AreaVerticalPlantada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataCadastro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoFlor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataPlantacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataColheitaEstimada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AreaHorizontalPlantada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AreaVerticalPlantada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataCadastro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoFlor.TipoFlorId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FlorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FlorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FlorId">Delete</a>
-            </td>
-        </tr>
+    ViewData["PageDescription"] = "O que é esse projeto?";
 }
-    </tbody>
-</table>
+@section HeadBlock {}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataPlantacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataColheitaEstimada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AreaHorizontalPlantada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AreaVerticalPlantada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataCadastro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoFlor)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataPlantacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataColheitaEstimada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AreaHorizontalPlantada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AreaVerticalPlantada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoFlor.TipoFlorId)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FlorId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.FlorId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.FlorId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+
+    <script>
+    </script>
+
+}

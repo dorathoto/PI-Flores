@@ -2,64 +2,77 @@
 
 @{
     ViewData["Title"] = "Index";
-}
+    ViewData["Category1"] = "Index";
 
-<h1>Index</h1>
+    ViewData["PageName"] = "Almoxarifados_Index";
+    ViewData["Heading"] = "<i class='far fa-list-alt'></i> Almoxarifado";
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorUnitario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorFinal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoMovimentacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataCadastro)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorUnitario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorFinal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoMovimentacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataCadastro)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AlmoxarifadoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AlmoxarifadoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AlmoxarifadoId">Delete</a>
-            </td>
-        </tr>
+    ViewData["PageDescription"] = "O que é esse projeto?";
 }
-    </tbody>
-</table>
+@section HeadBlock {}
+<div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ValorUnitario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ValorFinal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoMovimentacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataCadastro)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorUnitario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorFinal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoMovimentacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AlmoxarifadoId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.AlmoxarifadoId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.AlmoxarifadoId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+@section Scripts {
+    <script>
+    </script>
+    }
