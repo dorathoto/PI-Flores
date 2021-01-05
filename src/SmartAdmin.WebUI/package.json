@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "ansi-wrap": "^0.1.0",
-    "axios": "0.19.0",
+    "axios": "0.21.1",
     "bootstrap": "4.3.1",
     "datatables.net-bs": "^1.10.19",
     "datatables.net-colreorder-bs": "^1.5.1",
